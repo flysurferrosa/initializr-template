@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title></title>
+	<title>Let's Play Cards!</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -16,12 +16,14 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <script src="js/libs/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 
 	<div id="header-container">
 		<header class="wrapper clearfix">
-			<h1 id="title">h1#title</h1>
+			<h1 id="title">WAR - What is it good for? (absolutely nothin'!)<br><i>~The Temptations</i>
+      </h1>
 			<nav>
 				<ul>
 					<li><a href="#">nav ul li a</a></li>
@@ -36,26 +38,28 @@
 			
 			<article>
 				<header>
-					<h1>article header h1</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
+					<h1>Warrish Card Game</h1>
+					<p>There are two players in this game and a deck of 52 cards.  The deck is dealt evenly between the two players at random.  When the game is played, each player takes turns laying a card down in the middle until a match is played.  At this point the player who plays the matching card takes the matching cards and all the other cards in the middle and puts them into a separate pile (the "points" pile).  The game is played until one player runs out of cards and at that point the player whose "point" pile has more cards wins!</p>
 				</header>
 				<section>
-					<h2>article section h2</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+					<h2></h2>
+					<p></p>
 				</section>
 				<section>
-					<h2>article section h2</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+					<h2></h2>
+					<p>
+					 <button>Play Game!</button>	
+					</p>
 				</section>
 				<footer>
 					<h3>article footer h3</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
+					<p></p>
 				</footer>
 			</article>
 			
 			<aside>
 				<h3>aside</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+				<p></p>
 			</aside>
 			
 		</div> <!-- #main -->
@@ -66,6 +70,15 @@
 			<h3>footer</h3>
 		</footer>
 	</div>
-
+<script src="js/libs/cardGame.js"></script>
+<script>
+  $(document).ready(function() {
+    $('button').on('click', function() {
+      alert("yes!");
+      playGame(cardFromP1, cardFromP2, p1, p2, pile, p2Points, p1Points);
+      event.preventDefault();
+    });
+  });
+</script>
 </body>
 </html>
