@@ -1,14 +1,25 @@
 
   function Deck() {
-  this.cards = [];
-  this.count = function() {
-    return this.cards.length;
-  }
-  this.init = function() {
-    for (s =  1; s <= 4; s++) {
-      for (r = 1; r <= 13; r++) {
-        this.cards.push(new Card(r, s));
-        }   
+    this.cards = [];
+    this.count = function() {
+      return this.cards.length;
+    }
+    this.init = function() {
+      for (s =  1; s <= 4; s++) {
+        for (r = 1; r <= 13; r++) {
+          this.cards.push(new Card(r, s));
+          }   
+        }
+      }
+    this.deal = function(aDeck, p1, p2) {
+      while (this.cards.length !== 0) {
+        var randomIndex1 = Math.floor(Math.random()*this.cards.length);
+        var randomCard1 = this.cards.splice(randomIndex1, 1)[0];
+        p1.cards.push(randomCard1);
+
+        var randomIndex2 = Math.floor(Math.random()*this.cards.length);
+        var randomCard2 = this.cards.splice(randomIndex2, 1)[0];
+        p2.cards.push(randomCard2);
       }
     }
   }
@@ -28,6 +39,12 @@
   function Player() {
     this.cards = [];
     this.name = name;
+    this.playCard = function(aHand, aPlayer) {
+      thisCard = this.cards.pop();
+      console.log("Player "+this.name+" played a "+thisCard.rank+" of "+thisCard.suit);
+      $("#gameplay").append("<li>Player "+this.name+" played a "+thisCard.rank+" of "+thisCard.suit+"</li").hide()
+      pile.cards.push(thisCard);
+    }
   }
 
   p1 = new Player;
@@ -35,26 +52,24 @@
 
   function Hand() {
     this.cards = [];
+    this.showCards = function(aHand) {
+      for (var n = 0; n < this.cards.length; n++) {
+        $("#deck").append("<li>Card: "+this.cards[n].rank+" of "+this.cards[n].suit+"</li>").hide()
+        console.log(this.cards[n].suit+" - "+this.cards[n].rank)
+      }
+    }
+    this.reveal = function() {
+      $("#deck").fadeIn();
+      $(this).fadeOut();
+    }
   }
 
   pile = new Hand;
   p1Points = new Hand;
   p2Points = new Hand;
 
-  var deal = function (aDeck, p1, p2) {
-    
-    while (aDeck.cards.length !== 0) {
-      var randomIndex1 = Math.floor(Math.random()*aDeck.cards.length);
-      var randomCard1 = aDeck.cards.splice(randomIndex1, 1)[0];
-      p1.cards.push(randomCard1);
 
-      var randomIndex2 = Math.floor(Math.random()*aDeck.cards.length);
-      var randomCard2 = aDeck.cards.splice(randomIndex2, 1)[0];
-      p2.cards.push(randomCard2);
-    }
-  }
-
-  deal(d, p1, p2);
+  
 
   var cardFromP1, cardFromP2; 
 
@@ -95,6 +110,8 @@
           console.log("It's a tie!")
         }
   }
+
+  $("button#deck").on("click", d.showCards);
 
 
 
