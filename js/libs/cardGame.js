@@ -52,14 +52,16 @@
 
   function Hand() {
     this.cards = [];
+
     this.showCards = function(aHand) {
       for (var n = 0; n < this.cards.length; n++) {
-        $("#deck").append("<li>Card: "+this.cards[n].rank+" of "+this.cards[n].suit+"</li>").hide()
-        console.log(this.cards[n].suit+" - "+this.cards[n].rank)
+        $("#show").append("<li>Card: " + this.cards[n].rank + " of " + this.cards[n].suit + "</li>").hide()
+        console.log(this.cards[n].suit + "-" + this.cards[n].rank)
       }
     }
+
     this.reveal = function() {
-      $("#deck").fadeIn();
+      $("#show").fadeIn();
       $(this).fadeOut();
     }
   }
@@ -111,7 +113,7 @@
         }
   }
 
-  $("button#deck").on("click", d.showCards);
+  
 
 
 

@@ -51,8 +51,8 @@
 					</button>
 					<ul id="deck">
 					</ul>
-					<button id="deck">
-						Show Cards!
+					<button id="show">
+						Show Pile!
 					</button>
 				</section>
 				<section>
@@ -88,6 +88,13 @@
       d.deal(d, p1, p2);
       event.preventDefault();
     });
+  });
+  $(document).ready(function() {
+  	$("button#show").on('click', function() {
+      alert("Show Pile!");
+      pile.reveal;
+      event.preventDefault();    		
+  	});
   });
 </script>
 </body>
