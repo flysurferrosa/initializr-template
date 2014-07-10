@@ -49,6 +49,16 @@
 					<button id="shuffle">
 						Shuffle!
 					</button>
+          <ul id="p1card">
+          </ul>
+          <button id="p1Play">
+            Make Player 1 Play a Card
+          </button>
+          <ul id="p2card">
+          </ul>
+          <button id="p2Play">
+            Make Player 2 Play a Card
+          </button>
 					<ul id="deck">
 					</ul>
 					<button id="show">
@@ -88,13 +98,25 @@
       d.deal(d, p1, p2);
       event.preventDefault();
     });
-  });
-  $(document).ready(function() {
-  	$("button#show").on('click', function() {
-      alert("Show Pile!");
-      pile.reveal;
-      event.preventDefault();    		
-  	});
+    $("button#p1Play").on('click', function() {
+      alert("play");
+      p1.playCard();
+      event.preventDefault();
+    })
+    $("button#p2Play").on('click', function() {
+      alert("play");
+      p2.playCard();
+      event.preventDefault();
+    })
+    $("button#show").on('click', function() {
+      alert("trying to show cards");
+      pile.reveal();
+      event.preventDefault();
+      
+    })
+  
+  
+  	
   });
 </script>
 </body>

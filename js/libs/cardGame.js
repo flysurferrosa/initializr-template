@@ -48,7 +48,9 @@
   }
 
   p1 = new Player;
+  p1.name = "One";
   p2 = new Player;
+  p2.name = "Two";
 
   function Hand() {
     this.cards = [];
@@ -112,6 +114,8 @@
           console.log("It's a tie!")
         }
   }
+
+
 
   
 
